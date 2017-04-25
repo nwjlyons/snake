@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Elm Snake</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.min.css">
+</head>
+<body>
+    <script src="index.min.js"></script>
+    <script>
+    var app = Elm.Main.fullscreen({
+        speed: localStorage.getItem("speed"),
+        highScoreBorders: localStorage.getItem("highScoreBorders"),
+        highScoreNoBorders: localStorage.getItem("highScoreNoBorders"),
+        borders: localStorage.getItem("borders")
+    });
+    app.ports.setCache.subscribe(function (arr) {
+        var key = arr[0];
+        var value = arr[1];
+        localStorage.setItem(key, value);
+    });
+    </script>
+</body>
+</html>

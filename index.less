@@ -1,0 +1,137 @@
+@black: #4b4b4b;
+@pink: #FF69B4;
+@font-face {
+    font-family: 'Bitter';
+    src: url('fonts/Bitter/Bitter-Regular.ttf') format('truetype');
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    background: @black;
+    color: white;
+    font-family: Bitter,serif;
+    -webkit-text-size-adjust: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    width: 100%;
+}
+#view {
+    height: 100%;
+    margin: auto;
+    position: fixed;
+    width: 100%;
+}
+#swipe-area {
+    height: 100%;
+}
+
+// Header
+
+#header {
+    padding-bottom: 7px;
+    padding-top: 7px;
+    > div {
+        display: inline-block;
+        min-width: 15vw;
+        text-align: center;
+        vertical-align: top;
+        .header-title {
+            font-size: 11px;
+            line-height: 17px;
+        }
+        .header-content {
+            font-size: 35px;
+        }
+    }
+}
+#borders, #speed, #controls-one, #controls-two {
+    &:hover {
+        cursor: pointer;
+    }
+}
+#controls-two {
+    .header-title {
+        height: 17px;
+    }
+}
+#borders {
+    i {
+        opacity: .3;
+    }
+    &.borders-on {
+        i {
+            opacity: 1;
+        }
+    }
+}
+#score {
+    float: right;
+}
+@keyframes blinker {
+    50% {
+        background: @pink;
+        border-radius: 5px;
+    }
+}
+#high-score {
+    float: right;
+    &.new-high-score {
+        animation: blinker .25s linear 12;
+    }
+}
+
+// Grid
+
+#grid {
+    background: white;
+    height: 100vw;
+    > div {
+        width: 100%;
+        > div {
+            display: inline-block;
+            height: 100%;
+            &.snake {
+                background: @black;
+            }
+            &.apple {
+                background: @pink;
+            }
+        }
+    }
+}
+
+
+// Desktop
+@media only screen and (min-width:800px) {
+    @width: 600px;
+    #view {
+        left: 50%;
+        margin-left: -(@width / 2);
+        width: @width;
+    }
+    #grid {
+        height: @width;
+    }
+    #header {
+        margin-top: 2px;
+        > div {
+            min-width: 65px;
+            .header-title {
+                font-size: 15px;
+            }
+            .header-content {
+                font-size: 48px;
+                line-height: 48px;
+            }
+        }
+        #controls-one, #controls-two {
+            .header-content {
+                font-size: 42px;
+                line-height: 42px;
+            }
+        }
+    }
+}

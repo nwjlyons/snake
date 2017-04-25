@@ -1,1 +1,5 @@
 elm-stuff
+tmp/*.css
+tmp/*.js
+build/index.min.css
+build/index.min.js
