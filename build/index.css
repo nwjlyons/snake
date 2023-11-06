@@ -16,6 +16,13 @@
   -ms-user-select: none;
   user-select: none;
 }
+html {
+  touch-action: none;
+  height: 100%;
+}
+body {
+  height: 100%;
+}
 html,
 body {
   background: #4b4b4b;
@@ -29,11 +36,12 @@ body {
 #view {
   height: 100%;
   margin: auto;
-  position: fixed;
+  display: flex;
+  flex-direction: column;
   width: 100%;
 }
 #swipe-area {
-  height: 100%;
+  flex: 1;
 }
 #header {
   padding-bottom: 7px;
@@ -101,8 +109,6 @@ body {
 }
 @media only screen and (min-width: 800px) {
   #view {
-    left: 50%;
-    margin-left: -300px;
     width: 600px;
   }
   #grid {
